@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --color-primary: #1a5f23; /* Breaking Bad зеленый */
-            --color-secondary: #f5d742; /* Breaking Bad желтый */
+            --color-primary: #1a5f23;
+            /* Breaking Bad зеленый */
+            --color-secondary: #f5d742;
+            /* Breaking Bad желтый */
             --color-dark: #1a1a1a;
             --color-light: #f5f5f5;
             --color-accent: #b30000;
@@ -115,8 +118,13 @@
         }
 
         @keyframes glow {
-            from { text-shadow: 0 0 5px var(--color-secondary); }
-            to { text-shadow: 0 0 15px var(--color-secondary), 0 0 20px var(--color-primary); }
+            from {
+                text-shadow: 0 0 5px var(--color-secondary);
+            }
+
+            to {
+                text-shadow: 0 0 15px var(--color-secondary), 0 0 20px var(--color-primary);
+            }
         }
 
         .logo .breaking-bad {
@@ -187,6 +195,30 @@
             transform: scale(1.05);
         }
 
+        /* Контакты в шапке */
+        .header-contacts {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .contact-link {
+            color: var(--color-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all var(--transition-speed);
+            padding: 0.5rem 0.8rem;
+            border-radius: var(--border-radius);
+        }
+
+        .contact-link:hover {
+            background-color: var(--color-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
         /* Главная секция с hero изображением */
         .hero {
             position: relative;
@@ -238,14 +270,47 @@
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
         }
 
+        .hero-contacts {
+            margin-top: 2rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-contact-item {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all var(--transition-speed);
+            border: 2px solid transparent;
+        }
+
+        .hero-contact-item:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-5px);
+            border-color: var(--color-secondary);
+        }
+
         .pulse {
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         /* Основное содержимое */
@@ -400,6 +465,66 @@
             min-width: 50px;
         }
 
+        /* Секция контактов */
+        .contacts-section {
+            text-align: center;
+        }
+
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background-color: var(--color-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: all var(--transition-speed);
+            border: 2px solid transparent;
+        }
+
+        .contact-card:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            color: var(--color-secondary);
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background-color: var(--color-primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all var(--transition-speed);
+            border: 2px solid transparent;
+        }
+
+        .contact-btn:hover {
+            background-color: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+            transform: scale(1.05);
+        }
+
         /* Подвал */
         footer {
             background-color: var(--color-dark);
@@ -437,28 +562,61 @@
             margin-top: 1rem;
         }
 
+        .footer-contacts {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-contact {
+            color: var(--color-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color var(--transition-speed);
+        }
+
+        .footer-contact:hover {
+            color: var(--color-secondary);
+        }
+
         /* Адаптивность */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .header-container {
                 flex-direction: column;
                 gap: 1.5rem;
             }
-            
+
+            .header-contacts {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
             .nav-links {
                 flex-wrap: wrap;
                 justify-content: center;
             }
-            
+
             .hero-title {
                 font-size: 2.5rem;
             }
-            
+
             .hero-subtitle {
                 font-size: 1.2rem;
             }
-            
+
             .skills-grid {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            .contacts-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -466,111 +624,141 @@
             .hero-title {
                 font-size: 2rem;
             }
-            
+
             .hero-subtitle {
                 font-size: 1rem;
             }
-            
+
+            .header-contacts {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
             section {
                 padding: 1.5rem;
             }
-            
+
             h2 {
                 font-size: 1.7rem;
             }
         }
     </style>
 </head>
+
 <body class="theme-dark">
     <!-- Химические элементы (декоративные) -->
     <div class="element-badge" style="top: 10%; left: 5%;">He</div>
     <div class="element-badge" style="top: 20%; right: 10%;">Br</div>
     <div class="element-badge" style="bottom: 30%; left: 15%;">C</div>
     <div class="element-badge" style="bottom: 20%; right: 5%;">N</div>
-    
+
     <!-- Шапка -->
     <header>
         <div class="header-container">
             <div class="logo">
                 <h1><span class="breaking-bad">Breaking Bad</span> <span class="name">ПОРТФОЛИО</span></h1>
             </div>
-            
+
             <nav class="nav-links">
                 <a href="#about"><i class="fas fa-user"></i> Обо мне</a>
                 <a href="#skills"><i class="fas fa-code"></i> Навыки</a>
                 <a href="#qualities"><i class="fas fa-star"></i> Качества</a>
                 <a href="#sports"><i class="fas fa-dumbbell"></i> Спорт</a>
                 <a href="#dreams"><i class="fas fa-trophy"></i> Мечты</a>
+                <a href="#contacts"><i class="fas fa-phone"></i> Контакты</a>
             </nav>
-            
+
+            <div class="header-contacts">
+                <a href="tel:+79049833467" class="contact-link">
+                    <i class="fas fa-phone"></i> +7 (904) 983-34-67
+                </a>
+                <a href="https://t.me/Strok_Linelis" target="_blank" class="contact-link">
+                    <i class="fab fa-telegram"></i> @Strok_Linelis
+                </a>
+            </div>
+
             <button class="theme-toggle" id="themeToggle">
                 <i class="fas fa-sun"></i> <span id="themeText">Тема: Уолтер Уайт</span>
             </button>
         </div>
     </header>
-    
+
     <!-- Герой секция -->
     <section class="hero">
         <img src="hero.png" alt="Илья Соловьев" class="hero-image" onerror="this.style.display='none'">
         <div class="hero-overlay">
             <h1 class="hero-title pulse">Соловьев Илья</h1>
             <p class="hero-subtitle">11 лет | г. Каменск-Уральский | Ученик школы программирования KiberOne</p>
-            <p class="hero-subtitle" style="margin-top: 1rem; font-size: 1.2rem;">Цифровой творец и будущий IT-предприниматель</p>
+
+            <div class="hero-contacts">
+                <div class="hero-contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Телефон: +7 (904) 983-34-67</span>
+                </div>
+                <div class="hero-contact-item">
+                    <i class="fab fa-telegram"></i>
+                    <span>Telegram: @Strok_Linelis</span>
+                </div>
+            </div>
         </div>
     </section>
-    
+
     <!-- Основное содержимое -->
     <main>
         <!-- Обо мне -->
         <section id="about">
             <h2><i class="fas fa-user-chemist"></i> Привет! Меня зовут Илья</h2>
-            <p>Я — увлеченный ученик и начинающий цифровой творец. Мне нравится создавать что-то новое: от дизайна и игр до работы над собой в спорте. Я верю, что технологии и упорство помогают воплощать мечты в реальность.</p>
+            <p>Я — увлеченный ученик и начинающий цифровой творец. Мне нравится создавать что-то новое: от дизайна и игр
+                до работы над собой в спорте. Я верю, что технологии и упорство помогают воплощать мечты в реальность.
+            </p>
             <p>Мой девиз: <strong>"Say my name!"</strong> - когда-нибудь обо мне узнает весь мир IT!</p>
         </section>
-        
+
         <!-- Навыки -->
         <section id="skills">
             <h2><i class="fas fa-flask"></i> Мои Навыки и Технологии</h2>
             <p>Изучено в школе программирования <strong>KiberOne</strong></p>
-            
+
             <div class="skills-grid">
                 <div class="skill-card">
                     <div class="skill-icon"><i class="fab fa-adobe"></i></div>
                     <h3>Adobe Photoshop</h3>
                     <p>Умею работать с графикой, создавать коллажи и обрабатывать изображения.</p>
                 </div>
-                
+
                 <div class="skill-card">
                     <div class="skill-icon"><i class="fas fa-presentation"></i></div>
                     <h3>Microsoft PowerPoint</h3>
                     <p>Создаю стильные и интерактивные презентации для проектов.</p>
                 </div>
-                
+
                 <div class="skill-card">
                     <div class="skill-icon"><i class="fas fa-gamepad"></i></div>
                     <h3>Создание карт в Roblox</h3>
-                    <p>Разрабатываю собственные миры и игры на популярной игровой платформе. Понимаю основы геймдизайна.</p>
+                    <p>Разрабатываю собственные миры и игры на популярной игровой платформе. Понимаю основы геймдизайна.
+                    </p>
                 </div>
-                
+
                 <div class="skill-card">
                     <div class="skill-icon"><i class="fab fa-figma"></i></div>
                     <h3>Figma</h3>
                     <p>Знаком с основами дизайна интерфейсов и проектирования сайтов/приложений.</p>
                 </div>
-                
+
                 <div class="skill-card">
                     <div class="skill-icon"><i class="fas fa-cube"></i></div>
                     <h3>Minecraft Education</h3>
-                    <p>Использую игру не только для развлечения, но и для обучения, развития логики и проектного мышления.</p>
+                    <p>Использую игру не только для развлечения, но и для обучения, развития логики и проектного
+                        мышления.</p>
                 </div>
             </div>
         </section>
-        
+
         <!-- Качества -->
         <section id="qualities">
             <h2><i class="fas fa-atom"></i> Мои Личные Качества</h2>
             <p>Я считаю, что важно развиваться не только в учебе, но и как личность:</p>
-            
+
             <div class="qualities-list">
                 <div class="quality-badge"><i class="fas fa-heart"></i> Добрый и чуткий</div>
                 <div class="quality-badge"><i class="fas fa-brain"></i> Умный и любознательный</div>
@@ -579,32 +767,33 @@
                 <div class="quality-badge"><i class="fas fa-gem"></i> Красивый (внутренне и внешне)</div>
             </div>
         </section>
-        
+
         <!-- Спорт -->
         <section id="sports">
             <h2><i class="fas fa-dumbbell"></i> Спорт и Активный Отдых</h2>
             <p>Сила — не только в знаниях, но и в характере! Я развиваю его через спорт:</p>
-            
+
             <div class="sports-container">
                 <div class="sport-card">
                     <div class="sport-icon"><i class="fas fa-skating"></i></div>
                     <h3>Катание на коньках</h3>
                     <p>Люблю скорость, чувство равновесия и зимнюю атмосферу.</p>
                 </div>
-                
+
                 <div class="sport-card">
                     <div class="sport-icon"><i class="fas fa-weight-hanging"></i></div>
                     <h3>Тяжёлая атлетика</h3>
-                    <p>Развиваю силу, выносливость и дисциплину. Учусь ставить рекорды не только в виртуальном мире, но и в реальном.</p>
+                    <p>Развиваю силу, выносливость и дисциплину. Учусь ставить рекорды не только в виртуальном мире, но
+                        и в реальном.</p>
                 </div>
             </div>
         </section>
-        
+
         <!-- Мечты -->
         <section id="dreams">
             <h2><i class="fas fa-trophy"></i> Мои Мечты и Цели</h2>
             <p>Я мечтаю о большом и ярком будущем и уже сейчас работаю над его фундаментом:</p>
-            
+
             <div class="dreams-container">
                 <div class="dream-item">
                     <div class="dream-icon"><i class="fas fa-briefcase"></i></div>
@@ -613,7 +802,7 @@
                         <p>Используя знания в программировании и дизайне, создать успешный технологический проект.</p>
                     </div>
                 </div>
-                
+
                 <div class="dream-item">
                     <div class="dream-icon"><i class="fas fa-money-bill-wave"></i></div>
                     <div>
@@ -621,7 +810,7 @@
                         <p>Достичь финансовой независимости благодаря своему уму и трудолюбию.</p>
                     </div>
                 </div>
-                
+
                 <div class="dream-item">
                     <div class="dream-icon"><i class="fas fa-home"></i></div>
                     <div>
@@ -629,7 +818,7 @@
                         <p>Обрести комфортную квартиру и дом для жизни и творчества.</p>
                     </div>
                 </div>
-                
+
                 <div class="dream-item">
                     <div class="dream-icon"><i class="fas fa-car"></i></div>
                     <div>
@@ -638,23 +827,68 @@
                     </div>
                 </div>
             </div>
-            
+
             <p style="margin-top: 1.5rem; font-style: italic; color: var(--color-primary);">
-                <strong>Это только начало моего пути! Я постоянно учусь, пробую новое и стремлюсь к своим целям.</strong>
+                <strong>Это только начало моего пути! Я постоянно учусь, пробую новое и стремлюсь к своим
+                    целям.</strong>
             </p>
         </section>
+
+        <!-- Контакты -->
+        <section id="contacts" class="contacts-section">
+            <h2><i class="fas fa-address-book"></i> Мои Контакты</h2>
+            <p>Со мной можно связаться по телефону или в Telegram</p>
+
+            <div class="contacts-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Телефон</h3>
+                    <p>Позвоните мне для обсуждения проектов или сотрудничества</p>
+                    <div class="contact-info">+7 (904) 983-34-67</div>
+                    <a href="tel:+79049833467" class="contact-btn">
+                        <i class="fas fa-phone"></i> Позвонить
+                    </a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <h3>Telegram</h3>
+                    <p>Напишите мне в Telegram для быстрой связи</p>
+                    <div class="contact-info">@Strok_Linelis</div>
+                    <a href="https://t.me/Strok_Linelis" target="_blank" class="contact-btn">
+                        <i class="fab fa-telegram"></i> Написать в Telegram
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
-    
+
     <!-- Подвал -->
     <footer>
         <div class="footer-container">
             <p class="copyright">
                 &copy; <span class="year">2025</span> Портфолио Соловьева Ильи. Все права защищены.
             </p>
-            <p>Сайт создан с использованием передовых технологий в стиле культового сериала <strong>"Breaking Bad"</strong></p>
+            <p>Сайт создан с использованием передовых технологий в стиле культового сериала <strong>"Breaking
+                    Bad"</strong></p>
             <p class="author">Автор и создатель сайта: Соловьев Илья, ученик школы программирования KiberOne</p>
+
+            <div class="footer-contacts">
+                <a href="tel:+79049833467" class="footer-contact">
+                    <i class="fas fa-phone"></i> +7 (904) 983-34-67
+                </a>
+                <a href="https://t.me/Strok_Linelis" target="_blank" class="footer-contact">
+                    <i class="fab fa-telegram"></i> Telegram: @Strok_Linelis
+                </a>
+            </div>
+
             <div class="footer-logo">
-                <span style="color: var(--color-primary)">BREAKING</span> <span style="color: var(--color-secondary)">BAD</span> <span>PORTFOLIO</span>
+                <span style="color: var(--color-primary)">BREAKING</span> <span
+                    style="color: var(--color-secondary)">BAD</span> <span>PORTFOLIO</span>
             </div>
         </div>
     </footer>
@@ -664,10 +898,10 @@
         const themeToggle = document.getElementById('themeToggle');
         const themeText = document.getElementById('themeText');
         const body = document.body;
-        
+
         // Проверяем сохраненную тему в localStorage
         const savedTheme = localStorage.getItem('portfolioTheme') || 'dark';
-        
+
         // Устанавливаем тему при загрузке
         if (savedTheme === 'light') {
             body.classList.remove('theme-dark');
@@ -680,7 +914,7 @@
             themeText.textContent = 'Тема: Уолтер Уайт';
             themeToggle.innerHTML = '<i class="fas fa-sun"></i> <span id="themeText">Тема: Уолтер Уайт</span>';
         }
-        
+
         // Обработчик переключения темы
         themeToggle.addEventListener('click', () => {
             if (body.classList.contains('theme-dark')) {
@@ -690,7 +924,7 @@
                 themeText.textContent = 'Тема: Джесси Пинкман';
                 themeToggle.innerHTML = '<i class="fas fa-moon"></i> <span id="themeText">Тема: Джесси Пинкман</span>';
                 localStorage.setItem('portfolioTheme', 'light');
-                
+
                 // Анимация перехода
                 document.documentElement.style.transition = 'all 0.5s ease';
                 setTimeout(() => {
@@ -703,7 +937,7 @@
                 themeText.textContent = 'Тема: Уолтер Уайт';
                 themeToggle.innerHTML = '<i class="fas fa-sun"></i> <span id="themeText">Тема: Уолтер Уайт</span>';
                 localStorage.setItem('portfolioTheme', 'dark');
-                
+
                 // Анимация перехода
                 document.documentElement.style.transition = 'all 0.5s ease';
                 setTimeout(() => {
@@ -711,13 +945,13 @@
                 }, 500);
             }
         });
-        
+
         // Анимация при скролле
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -726,7 +960,7 @@
                 }
             });
         }, observerOptions);
-        
+
         // Наблюдаем за секциями
         document.querySelectorAll('section').forEach(section => {
             section.style.opacity = '0';
@@ -734,7 +968,7 @@
             section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             observer.observe(section);
         });
-        
+
         // Наблюдаем за карточками навыков
         document.querySelectorAll('.skill-card').forEach(card => {
             card.style.opacity = '0';
@@ -742,7 +976,15 @@
             card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             observer.observe(card);
         });
-        
+
+        // Наблюдаем за карточками контактов
+        document.querySelectorAll('.contact-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+
         // Анимация химических элементов
         function animateElements() {
             const elements = document.querySelectorAll('.element-badge');
@@ -750,27 +992,21 @@
                 // Случайное движение элементов
                 const randomX = Math.random() * 10 - 5;
                 const randomY = Math.random() * 10 - 5;
-                
+
                 el.style.transform = `translate(${randomX}px, ${randomY}px)`;
-                
+
                 // Меняем прозрачность
                 const randomOpacity = 0.5 + Math.random() * 0.3;
                 el.style.opacity = randomOpacity;
             });
         }
-        
+
         // Запускаем анимацию элементов каждые 3 секунды
         setInterval(animateElements, 3000);
-        
+
         // Имитация загрузки hero изображения
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             const heroImage = document.querySelector('.hero-image');
             // Если изображение не загрузилось, показываем фоновый цвет
             if (heroImage.naturalWidth === 0) {
-                document.querySelector('.hero').style.background = 'linear-gradient(to bottom, #1a1f23, #1a5f23)';
-                document.querySelector('.hero-overlay').style.background = 'rgba(0, 0, 0, 0.5)';
-            }
-        });
-    </script>
-</body>
-</html> 
+                document.querySelector('.hero').style.
